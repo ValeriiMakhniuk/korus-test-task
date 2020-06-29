@@ -6,7 +6,14 @@
   "repository": "git@github.com:ValeriiMakhniuk/korus-test-task.git",
   "author": "Valerii Makhniuk <vmakhnyuk@yandex.ru>",
   "license": "MIT",
+  "scripts": {
+    "build": "babel src -d dist"
+  },
   "devDependencies": {
+    "@babel/cli": "^7.10.3",
+    "@babel/core": "^7.10.3",
+    "@babel/preset-env": "^7.10.3",
     "prettier": "^2.0.5"
-  }
+  },
+  "dependencies": {}
 }
