@@ -5,6 +5,7 @@ import {
   baseAudienceCount,
   genreTypes,
   CREDITS_AUDIENCE_COUNT,
+  COMEDY_CREDITS_CF,
 } from './constants';
 
 import invoices from './invoices.json';
@@ -13,7 +14,7 @@ import playsInfo from './plays.json';
 const countCredits = (audience, comedyCount) => {
   const credits = Math.max(audience - CREDITS_AUDIENCE_COUNT, 0);
   if (comedyCount % 10 === 0 && comedyCount !== 0) {
-    return credits + Math.floor(audience / 5);
+    return credits + Math.floor(audience / COMEDY_CREDITS_CF);
   }
 
   return credits;
