@@ -24,3 +24,4 @@ export const baseAudienceCount = {
 };
 
 export const CREDITS_AUDIENCE_COUNT = 30;
+export const COMEDY_CREDITS_CF = 5;
