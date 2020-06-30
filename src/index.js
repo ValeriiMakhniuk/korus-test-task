@@ -78,9 +78,9 @@ const countPerformancesAmount = (performances, plays) => {
   return performances.map(countPerfomanceAmount);
 };
 
-const getPerformancesOutput = (performancesInfo, formatter) => {
+const getPerformancesOutput = (performancesInfo, format) => {
   return performancesInfo.reduce((output, { name, amount, audience }) => {
-    return `${output}${name}: ${formatter.format(amount)} ${audience} мест\n`;
+    return `${output}${name}: ${format(amount)} ${audience} мест\n`;
   }, ``);
 };
 
@@ -98,21 +98,24 @@ const countTotalCreditsAmount = (performancesInfo) => {
   );
 };
 
-const statement = (invoice, plays) => {
-  const { customer, performances } = invoice;
-  const formatter = new Intl.NumberFormat('ru-RU', {
+const format = (amount) => {
+  return new Intl.NumberFormat('ru-RU', {
     style: 'currency',
     currency: 'RUB',
     minimumFractionDigits: 0,
-  });
+  }).format(amount);
+};
+
+const statement = (invoice, plays) => {
+  const { customer, performances } = invoice;
 
   const performancesInfo = countPerformancesAmount(performances, plays);
   const totalAmount = countTotalAmount(performancesInfo);
   const totalCredits = countTotalCreditsAmount(performancesInfo);
 
   const title = `Счет для ${customer}\n`;
-  const performancesOutput = getPerformancesOutput(performancesInfo, formatter);
-  const totalAmountOutput = `Итого с вас ${formatter.format(totalAmount)}\n`;
+  const performancesOutput = getPerformancesOutput(performancesInfo, format);
+  const totalAmountOutput = `Итого с вас ${format(totalAmount)}\n`;
   const totalCreditsOutput = `Вы заработали ${totalCredits} бонусов\n`;
 
   return `${title}${performancesOutput}${totalAmountOutput}${totalCreditsOutput}`;
