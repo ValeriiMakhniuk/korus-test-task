@@ -10,6 +10,11 @@
     "build": "babel src -d dist",
     "lint:js": "eslint ."
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint:js"
+    }
+  },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
