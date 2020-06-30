@@ -1,18 +1,25 @@
 {
   "name": "korus-test-task",
   "version": "1.0.0",
-  "description": "refaktoring test task",
+  "description": "refactoring test task",
   "main": "index.js",
   "repository": "git@github.com:ValeriiMakhniuk/korus-test-task.git",
   "author": "Valerii Makhniuk <vmakhnyuk@yandex.ru>",
   "license": "MIT",
   "scripts": {
-    "build": "babel src -d dist"
+    "build": "babel src -d dist",
+    "lint:js": "eslint ."
   },
   "devDependencies": {
     "@babel/cli": "^7.10.3",
     "@babel/core": "^7.10.3",
     "@babel/preset-env": "^7.10.3",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.0.5"
   },
   "dependencies": {}
